@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api_url = "http://ec2-15-206-163-19.ap-south-1.compute.amazonaws.com:8081/api/cart";
+const Api_url = "http://localhost:8081/api/cart";
 
 export const addTocart = async (foodId, token) => {
   try {
