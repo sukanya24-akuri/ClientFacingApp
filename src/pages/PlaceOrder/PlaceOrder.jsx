@@ -6,12 +6,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { razorpay_key } from "../../util/Constants";
 import { Await, useNavigate } from "react-router-dom";
-import Razorpay from "razorpay";
 
 const PlaceOrder = () => {
   const { foodList, quantities, setQuantities, token } =
     useContext(StoreContext);
-
   const navigate = useNavigate();
   const [data, setData] = useState({
     firstname: "",
@@ -38,7 +36,7 @@ const PlaceOrder = () => {
       email: data.email,
       address:data.address,
       orderedItems: cartItems.map((item) => ({
-        foodId: item.foodId,
+        foodId: item.id,
         quantity: quantities[item.id],
         price: item.price * quantities[item.id],
         category: item.category,
@@ -49,6 +47,7 @@ const PlaceOrder = () => {
       amount: totalAmount.toFixed(2),
       orderStatus: "preparing food",
     };
+
 
     try {
       const response = await axios.post(

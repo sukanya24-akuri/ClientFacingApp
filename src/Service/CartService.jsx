@@ -28,9 +28,7 @@ export const removeQtyFromCart = async (foodId, token) => {
 
 export const getcartItems = async (token) => {
   try {
-    const response = await axios.get(Api_url, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await axios.get(Api_url, {headers: { Authorization: `Bearer ${token}` },});
     return response.data.items;
   } catch (error) {
     console.error("Erroe while fetching the  cart data", error);

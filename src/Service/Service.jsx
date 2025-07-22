@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url_api='http:/localhost:8081/api/food';
+const url_api='http://localhost:8081/api/food';
 export const fetchFoodList=async()=>
     {
         try {
